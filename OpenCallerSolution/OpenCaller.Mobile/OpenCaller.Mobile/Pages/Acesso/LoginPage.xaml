@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenCaller.Mobile.Pages.Acesso.LoginPage"
+             Title="{Binding Title}">
+  <Grid RowSpacing="20" ColumnSpacing="0" Padding="10, 0, 10, 20">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <StackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+      <Image Source="lg_vetnanet.png" WidthRequest="150" />
+    </StackLayout>
+
+    <Entry Grid.Row="1" Text="{Binding Email}" Placeholder="Email" Style="{StaticResource EntryStyle}" />
+    <Entry Grid.Row="2" Text="{Binding Senha}" Placeholder="Senha" IsPassword="True" Style="{StaticResource EntryStyle}" />
+
+    <Grid Grid.Row="3" RowSpacing="0" ColumnSpacing="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <StackLayout Grid.Column="1" Spacing="1">
+        <Label Text="ESQUECI MINHA SENHA" TextColor="#ffffff">
+          <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding EsqueciCommand}" />
+          </Label.GestureRecognizers>
+        </Label>
+        <StackLayout HeightRequest="1" HorizontalOptions="Fill" BackgroundColor="#ffffff"></StackLayout>
+      </StackLayout>
+    </Grid>
+
+    <Button Grid.Row="4" Text="Login" Command="{Binding LoginCommand}" TextColor="#ffffff" BackgroundColor="#de966a" />
+    <Button Grid.Row="5" Text="Conectar com Facebook" Command="{Binding SocialLoginCommand}" TextColor="#ffffff" BackgroundColor="#3b5998"/>
+
+    <Label Grid.Row="6" Text="Nao tem cadastro ainda? CADASTRE-SE" TextColor="#ffffff" HorizontalTextAlignment="Center" FontAttributes="Bold">
+      <Label.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding RegistrarCommand}" />
+      </Label.GestureRecognizers>
+    </Label>
+
+  </Grid>
+</ContentPage>
